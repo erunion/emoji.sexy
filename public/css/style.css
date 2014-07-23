@@ -63,6 +63,10 @@ a:hover {
   font-style: italic;
 }
 
+#chrome a {
+  color: #554DFF;
+}
+
 #credits {
   position: fixed;
   bottom: 5px;
