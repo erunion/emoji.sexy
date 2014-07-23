@@ -32,8 +32,13 @@ module.exports = function (app) {
     }
 
     try {
+      var host = req.headers.host;
       var foundInDb = false;
       var stream = db.createReadStream();
+
+      if (app.get('env') === 'production') {
+        host = 'emoji.sexy';
+      }
 
       stream.on('data', function (data) {
         if (data.value === url) {
@@ -42,7 +47,7 @@ module.exports = function (app) {
           foundInDb = true;
 
           res.send(200, {
-            url: 'http://' + req.headers.host + '/' + data.key
+            url: 'http://' + host + '/' + data.key
           });
         }
       }).on('error', function (err) {
@@ -65,7 +70,7 @@ module.exports = function (app) {
           }
 
           res.send(200, {
-            url: 'http://' + req.headers.host + '/' + shortened
+            url: 'http://' + host + '/' + shortened
           });
         });
       });
