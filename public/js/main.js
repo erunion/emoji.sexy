@@ -1,10 +1,17 @@
 (function($) {
+  $('#url').keypress(function (e) {
+    if (e.which === 13) {
+      e.preventDefault();
+      $('#submit').click();
+    }
+  });
+
   $('#submit').on('click', function (e) {
     e.preventDefault();
 
     $('#error, #success').hide();
 
-    var url = $('input[name="url"]');
+    var url = $('#url');
     if (url.val() === '' || url.val() === url.data('placeholder')) {
       $('#error').text('Please enter in a URL.').show();
       return;
