@@ -1,7 +1,7 @@
 {
   "name": "emojiurl",
   "version": "0.0.0",
-  "description": "url shortener powered by emoji",
+  "description": "URL shortener powered by emoji and LevelDB.",
   "main": "index.js",
   "repository": {
     "type": "git",
@@ -27,6 +27,6 @@
     "ejs": "~0.8.5"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "node ./bin/www"
   }
 }
