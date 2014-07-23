@@ -49,8 +49,11 @@ a:hover {
 #success {
   text-align: center;
   font-size: 20px;
-  color: #7F8AFA;
   display: none;
+}
+
+#success a {
+  color: #7F8AFA;
 }
 
 #credits {
