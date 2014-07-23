@@ -5,7 +5,6 @@ module.exports = function (app) {
   var db = levelup('./db');
 
   var lexicon = require('emoji-lexicon');
-  var Handlebars = require('handlebars');
   var validator = require('validator');
 
   app.get('/', function (req, res, next) {
