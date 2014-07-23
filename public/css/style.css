@@ -52,8 +52,15 @@ a:hover {
   display: none;
 }
 
-#success a {
-  color: #7F8AFA;
+#success input {
+  font-size: 15px;
+  padding: 5px;
+}
+
+#chrome {
+  text-align: center;
+  font-size: 10px;
+  font-style: italic;
 }
 
 #credits {

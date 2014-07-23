@@ -21,7 +21,7 @@
     $.getJSON($(this).data('href'), {
       url: url
     }).done(function (data) {
-      $('#success a').attr('href', data.url).text(data.url)
+      $('#success input').val(data.url);
       $('#success').show();
     }).fail(function (data) {
       if (typeof data.responseJSON.error !== 'undefined') {
