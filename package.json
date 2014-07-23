@@ -1,18 +1,18 @@
 {
-  "name": "emojiurl",
+  "name": "emoji.sexy",
   "version": "0.0.0",
   "description": "URL shortener powered by emoji and LevelDB.",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonursenbach/emojiurl.git"
+    "url": "https://github.com/jonursenbach/emoji.sexy.git"
   },
   "author": "Jon Ursenbach <jon@ursenba.ch>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jonursenbach/emojiurl/issues"
+    "url": "https://github.com/jonursenbach/emoji.sexy/issues"
   },
-  "homepage": "https://github.com/jonursenbach/emojiurl",
+  "homepage": "https://github.com/jonursenbach/emoji.sexy",
   "dependencies": {
     "emoji-lexicon": "^1.0.0",
     "leveldown": "^0.10.2",

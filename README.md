@@ -1,8 +1,8 @@
-emojiurl
+emoji.sexy
 =============
 
 ## About
-emojiurl is a URL shortener powered by emoji and [LevelDB](https://github.com/rvagg/node-levelup).
+[emoji.sexy](http://emoji.sexy) is a URL shortener powered by emoji and [LevelDB](https://github.com/rvagg/node-levelup).
 
 All URLs are comprised of 5 randomized emoji from the library of 800+ emoji in [emoji-lexicon](https://github.com/jonursenbach/emoji-lexicon).
 
