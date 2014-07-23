@@ -33,18 +33,41 @@ module.exports = function (app) {
     }
 
     try {
-      var shortened = '';
-      for (var x=0; x<4; x++) {
-        shortened += lexicon[Math.floor(Math.random() * lexicon.length)];
-      }
+      var foundInDb = false;
+      var stream = db.createReadStream();
 
-      db.put(shortened, url, function (err) {
-        if (err) {
-          return next(err);
+      stream.on('data', function (data) {
+        if (data.value === url) {
+          stream.destroy();
+
+          foundInDb = true;
+
+          res.send(200, {
+            url: 'http://' + req.headers.host + '/' + data.key
+          });
+        }
+      }).on('error', function (err) {
+        res.send(404, {
+          error: err
+        });
+      }).on('close', function () {
+        if (foundInDb) {
+          return;
         }
 
-        res.send(200, {
-          url: 'http://' + req.headers.host + '/' + shortened
+        var shortened = '';
+        for (var x=0; x<5; x++) {
+          shortened += lexicon[Math.floor(Math.random() * lexicon.length)];
+        }
+
+        db.put(shortened, url, function (err) {
+          if (err) {
+            return next(err);
+          }
+
+          res.send(200, {
+            url: 'http://' + req.headers.host + '/' + shortened
+          });
         });
       });
     } catch (err) {
@@ -56,15 +79,13 @@ module.exports = function (app) {
     db.get(decodeURIComponent(req.params[0]), function (err, value) {
       if (err) {
         if (err.notFound) {
-          res.send(404, 'Not found.');
+          res.redirect('/');
           res.end();
           return;
         }
 
         return next(err);
       }
-
-      console.log(value);
 
       res.redirect(value);
     });
