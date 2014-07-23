@@ -2,7 +2,7 @@
   "name": "emoji.sexy",
   "version": "0.0.0",
   "description": "URL shortener powered by emoji and LevelDB.",
-  "main": "index.js",
+  "main": "app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/jonursenbach/emoji.sexy.git"
